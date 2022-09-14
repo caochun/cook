@@ -9,7 +9,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: '好的，今天我们来做菜！',
+      content: 'Let\'s Cook',
     },
     {
       name: 'theme-color',
@@ -26,4 +26,5 @@ useHead({
   <!-- <ClientOnly>
     <ReloadPrompt />
   </ClientOnly> -->
+  <DialogsWrapper />
 </template>
