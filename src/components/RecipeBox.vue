@@ -13,7 +13,7 @@ export default defineComponent({
       <h2>{{ recipe }}</h2>
       <div class="modal-action">
         <button class="modal-button" @click="$emit('confirm')">
-          Confirm
+          OK
         </button>
       </div>
     </div>

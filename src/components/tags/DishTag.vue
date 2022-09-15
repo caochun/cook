@@ -24,7 +24,7 @@ defineProps<{
 //   })
 // }
 
-const { reveal } = createConfirmDialog(RecipeBox, {
+const recipeBox = createConfirmDialog(RecipeBox, {
   recipe: 'The recipe goes here...',
 })
 </script>
@@ -32,7 +32,7 @@ const { reveal } = createConfirmDialog(RecipeBox, {
 <template>
   <a
     target="_blank" class="dish-tag tag rounded"
-    p="x-2" border="~ blue-200 dark:blue-800" bg="blue-300 opacity-20" @click="reveal"
+    p="x-2" border="~ blue-200 dark:blue-800" bg="blue-300 opacity-20" @click="recipeBox.reveal({ recipe: dish.name })"
   >
     <span m="r-1" class="inline-flex justify-center items-center" text="sm blue-700 dark:blue-200">
       {{ `${dish.tags?.includes('杂烩') ? '🍲' : dish.emojis.join(' ')} ${dish.name}` }}
