@@ -96,7 +96,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
       </span>
     </MeatTag>
   </div>
-  <div m="y-4">
+  <!-- <div m="y-4">
     <h2 opacity="90" text="base" font="bold" p="1">
       🍚 主食也要一起下锅吗？（不选也行）
     </h2>
@@ -132,7 +132,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
         }}
       </span>
     </ToolTag>
-  </div>
+  </div> -->
 
   <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
     <h2 text="xl" font="bold" p="1">
@@ -150,7 +150,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
       <Transition mode="out-in">
         <div class="cook-filter-recipes">
           <span v-if="!curStuff.length && !curTool" text="sm" p="2">
-            你要先选食材或工具哦～
+            你要先选食材哦～
           </span>
 
           <span v-else-if="displayedRecipe.length">
@@ -173,12 +173,12 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
 
       <hr m="y-2">
 
-      <div class="inline-flex justify-center items-center">
+      <!-- <div class="inline-flex justify-center items-center">
         今天吃什么？<div class="transition" hover="text-blue-500" inline-block cursor-pointer i-ri-refresh-line @click="randomRecipe = generateRandomRecipe()" />
       </div>
       <p m="t-2">
         <DishTag :dish="randomRecipe" />
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
