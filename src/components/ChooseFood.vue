@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useGtm } from '@gtm-support/vue-gtm'
 import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/data/food'
 import { meat, staple, tools, vegetable } from '~/data/food'
@@ -22,24 +21,11 @@ const { displayedRecipe, clickTool } = useRecipe(recipe)
 const recipeBtn = ref<HTMLButtonElement>()
 const { playAnimation } = useEmojiAnimation(recipeBtn)
 
-const gtm = useGtm()
-
 const toggleStuff = (item: StuffItem, category = '', e?: Event) => {
   rStore.toggleStuff(item.name)
 
   if (curStuff.value.includes(item.name))
     playAnimation(item.emoji)
-
-  gtm?.trackEvent({
-    event: 'click',
-    category: `${category}_${item.name}`,
-    action: 'click_stuff',
-    label: '食材',
-  })
-  gtm?.trackEvent({
-    event: 'click_stuff',
-    action: item.name,
-  })
 }
 
 const recipePanel = ref()

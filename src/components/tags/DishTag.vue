@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <a
-    :href="dish.link || `https://www.bilibili.com/video/${dish.bv}`" target="_blank" class="dish-tag tag rounded" p="x-2"
+    :href="`${dish.bv}.html`" target="_blank" class="dish-tag tag rounded" p="x-2"
     border="~ blue-200 dark:blue-800"
     bg="blue-300 opacity-20"
   >
