@@ -6,7 +6,7 @@ const rStore = useRecipeStore()
 <template>
   <div>
     <p text="sm" m="b-4">
-      好的，今天我们来做菜！
+      好的，今天我们来做菜！Let's Cook!
     </p>
     <p>
       <ChooseFood />

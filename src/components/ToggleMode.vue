@@ -13,9 +13,6 @@ const searchModes: {
 }, {
   id: 'strict',
   name: '严格匹配',
-}, {
-  id: 'survival',
-  name: '生存模式',
 }]
 </script>
 

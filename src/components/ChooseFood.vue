@@ -57,11 +57,11 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
   </Transition>
 
   <h2 m="t-4" text="xl" font="bold" p="1">
-    🥘 先选一下食材
+    🥘 先选食材 Ingredients
   </h2>
   <div>
     <h2 opacity="90" text="base" font="bold" p="1">
-      🥬 菜菜们
+      🥬 菜菜们 Vegetables
     </h2>
     <VegetableTag
       v-for="item, i in vegetable" :key="i"
@@ -74,14 +74,14 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
       </span>
       <span class="inline-flex" m="l-1">
         {{
-          item.name
+          item.label
         }}
       </span>
     </VegetableTag>
   </div>
   <div m="y-4">
     <h2 opacity="90" text="base" font="bold" p="1">
-      🥩 肉肉们
+      🥩 肉肉们 Meat
     </h2>
     <MeatTag
       v-for="item, i in meat" :key="i"
@@ -91,7 +91,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
       <span>{{ item.emoji }}</span>
       <span m="l-1">
         {{
-          item.name
+          item.label
         }}
       </span>
     </MeatTag>
@@ -136,7 +136,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
 
   <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
     <h2 text="xl" font="bold" p="1">
-      🍲 来看看组合出的菜谱吧！
+      🍲 组合出的菜谱 Matched Recipes
     </h2>
 
     <!-- <div class="absolute left-5 top-5 icon-btn">
@@ -150,7 +150,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
       <Transition mode="out-in">
         <div class="cook-filter-recipes">
           <span v-if="!curStuff.length && !curTool" text="sm" p="2">
-            你要先选食材哦～
+            你要先选食材哦～ Pick ingredients
           </span>
 
           <span v-else-if="displayedRecipe.length">
@@ -158,7 +158,7 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
           </span>
 
           <span v-else text="sm">
-            还没有完美匹配的菜谱呢……
+            还没有完美匹配的菜谱呢…… No match
             <br>
             大胆尝试一下，或者<a href="#" @click="rStore.reset()">
               <strong>换个组合</strong></a>？

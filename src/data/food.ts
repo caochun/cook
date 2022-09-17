@@ -32,64 +32,75 @@ export const vegetable: StuffItem[] = [
   {
     name: '土豆',
     emoji: '🥔',
+    label: '土豆 Patato',
   },
   {
-    name: '胡萝卜',
+    label: '胡萝卜 Carrot',
     emoji: '🥕',
+    name: '胡萝卜',
   },
   {
     name: '花菜',
     emoji: '🥦',
+    label: '花菜 Broccoli',
   },
   {
     name: '白萝卜',
     emoji: '🥣',
+    label: '白萝卜 Radish',
   },
   {
     name: '西葫芦',
     emoji: '🥒',
+    label: '西葫芦 Zucchini',
   },
   {
-    name: '番茄',
+    label: '番茄 Tomato',
     emoji: '🍅',
+    name: '番茄',
     alias: '西红柿',
   },
   {
+    label: '芹菜 Celery',
+    emoji: '🥗',
     name: '芹菜',
-    emoji: '🥬',
   },
   {
     name: '黄瓜',
     emoji: '🥒',
+    label: '黄瓜 Cucumber',
   },
   {
     name: '洋葱',
     emoji: '🧅',
+    label: '洋葱 Onion',
   },
   {
     name: '莴笋',
     emoji: '🎍',
+    label: '莴笋 Lettuce',
   },
   {
     name: '菌菇',
     emoji: '🍄',
+    label: '菌菇 Mushroom',
+    alias: '蘑菇',
   },
   {
     name: '茄子',
     emoji: '🍆',
+    label: '茄子 Eggplant',
   },
   {
     name: '豆腐',
     emoji: '🍲',
+    label: '豆腐 Tofu',
   },
   {
     name: '包菜',
-    emoji: '🥗',
-    // image: '/images/cabbage-dog.jpg',
-  },
-  {
-    name: '白菜',
     emoji: '🥬',
+    alias: '白菜',
+    label: '包菜 Cabbage',
   },
 ]
 
@@ -98,44 +109,40 @@ export const vegetable: StuffItem[] = [
  */
 export const meat: StuffItem[] = [
   {
-    name: '午餐肉',
-    emoji: '🥓',
-  },
-  {
     name: '香肠',
+    label: '香肠 Sausage',
     emoji: '🌭',
-  },
-  {
-    name: '腊肠',
-    emoji: '🌭',
+    alias: '腊肠',
   },
   {
     name: '鸡肉',
     emoji: '🐤',
+    label: '鸡肉 Chicken',
   },
   {
     name: '猪肉',
     emoji: '🐷',
+    label: '猪肉 Pork',
   },
   {
-    name: '鸡蛋',
+    label: '鸡蛋 Egg',
     emoji: '🥚',
+    name: '鸡蛋',
   },
   {
     name: '虾',
     emoji: '🦐',
+    label: '虾 Shrimp',
   },
   {
     name: '牛肉',
     emoji: '🐮',
+    label: '牛肉 Beef',
   },
   {
-    name: '骨头',
-    emoji: '🦴',
-  },
-  {
-    name: '鱼（Todo）',
+    name: '鱼',
     emoji: '🐟',
+    label: '鱼 Fish',
   },
 ]
 
