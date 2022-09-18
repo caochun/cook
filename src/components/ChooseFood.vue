@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/data/food'
-import { meat, staple, tools, vegetable } from '~/data/food'
+// import { meat, staple, tools, vegetable } from '~/data/food'
+import { meat, vegetable } from '~/data/food'
+
 import recipeData from '~/data/recipe.json'
-import type { Recipe, RecipeItem } from '~/types'
+// import type { Recipe, RecipeItem } from '~/types'
+import type { Recipe } from '~/types'
+
 import { useRecipeStore } from '~/stores/recipe'
 
 import { useInvisibleElement } from '~/composables/helper'
@@ -16,7 +20,9 @@ const rStore = useRecipeStore()
 const { curTool } = storeToRefs(rStore)
 const curStuff = computed(() => rStore.selectedStuff)
 
-const { displayedRecipe, clickTool } = useRecipe(recipe)
+// const { displayedRecipe, clickTool } = useRecipe(recipe)
+
+const { displayedRecipe } = useRecipe(recipe)
 
 const recipeBtn = ref<HTMLButtonElement>()
 const { playAnimation } = useEmojiAnimation(recipeBtn)
@@ -31,22 +37,17 @@ const toggleStuff = (item: StuffItem, category = '', e?: Event) => {
 const recipePanel = ref()
 const { isVisible, show } = useInvisibleElement(recipePanel)
 
-function generateRandomRecipe() {
-  return recipe.value[Math.floor(Math.random() * recipe.value.length)]
-}
-const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
+// function generateRandomRecipe() {
+//   return recipe.value[Math.floor(Math.random() * recipe.value.length)]
+// }
+// const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
 </script>
 
 <template>
   <Transition>
-    <button
-      v-show="displayedRecipe.length !== recipe.length && isVisible"
-      ref="recipeBtn"
+    <button v-show="displayedRecipe.length !== recipe.length && isVisible" ref="recipeBtn"
       class="cursor-pointer fixed inline-flex justify-center items-center rounded rounded-full shadow hover:shadow-md z-9"
-      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4"
-      text="green-600 dark:green-300"
-      @click="show"
-    >
+      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4" text="green-600 dark:green-300" @click="show">
       <span v-if="displayedRecipe.length">
         <div i-mdi-bowl-mix-outline />
       </span>
@@ -63,18 +64,15 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
     <h2 opacity="90" text="base" font="bold" p="1">
       🥬 菜菜们 Vegetables
     </h2>
-    <VegetableTag
-      v-for="item, i in vegetable" :key="i"
-      :active="curStuff.includes(item.name)"
-      @click="toggleStuff(item, 'vegetable')"
-    >
+    <VegetableTag v-for="item, i in vegetable" :key="i" :active="curStuff.includes(item.name)"
+      @click="toggleStuff(item, 'vegetable')">
       <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
       <span v-else-if="item.image" class="inline-flex">
         <img class="inline-flex" w="2" h="2" width="10" height="10" :src="item.image" :alt="item.name">
       </span>
       <span class="inline-flex" m="l-1">
         {{
-          item.label
+        item.label
         }}
       </span>
     </VegetableTag>
@@ -83,15 +81,11 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
     <h2 opacity="90" text="base" font="bold" p="1">
       🥩 肉肉们 Meat
     </h2>
-    <MeatTag
-      v-for="item, i in meat" :key="i"
-      :active="curStuff.includes(item.name)"
-      @click="toggleStuff(item, 'meat')"
-    >
+    <MeatTag v-for="item, i in meat" :key="i" :active="curStuff.includes(item.name)" @click="toggleStuff(item, 'meat')">
       <span>{{ item.emoji }}</span>
       <span m="l-1">
         {{
-          item.label
+        item.label
         }}
       </span>
     </MeatTag>
@@ -163,10 +157,10 @@ const randomRecipe = ref<RecipeItem>(generateRandomRecipe())
             大胆尝试一下，或者<a href="#" @click="rStore.reset()">
               <strong>换个组合</strong></a>？
             <br>
-            <span m="t-1">欢迎来
+            <!-- <span m="t-1">欢迎来
               <a class="font-bold text-blue-600 dark:text-blue-400" href="https://docs.qq.com/sheet/DQk1vdkhFV0twQVNS?tab=uykkic" target="_blank">这里</a>
               反馈新的菜谱！
-            </span>
+            </span> -->
           </span>
         </div>
       </Transition>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { tools } from '~/data/food'
+// import { tools } from '~/data/food'
 import type { RecipeItem } from '~/types'
 defineProps<{
   dish: RecipeItem
