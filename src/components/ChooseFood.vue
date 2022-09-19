@@ -56,13 +56,13 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
     </button>
   </Transition>
 
-  <div m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
+  <div m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-600/8">
     <h2 m="t-4" text="xl" font="bold" p="1">
-      🥘 先选食材 Ingredients
+      🥘 选食材 Ingredients
     </h2>
     <div>
-      <h2 opacity="90" text="base" font="bold" p="1">
-        🥬 菜菜们 Vegetables
+      <h2 opacity="90" text="base" font="bold" p="2">
+        🥬 蔬果 Vegetables
       </h2>
       <VegetableTag
         v-for="item, i in vegetable" :key="i"
@@ -81,8 +81,8 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
       </VegetableTag>
     </div>
     <div m="y-4">
-      <h2 opacity="90" text="base" font="bold" p="1">
-        🥩 肉肉们 Meat
+      <h2 opacity="90" text="base" font="bold" p="">
+        🥩 肉肉 Meat
       </h2>
       <MeatTag
         v-for="item, i in meat" :key="i"
@@ -135,8 +135,8 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
     </ToolTag>
   </div> -->
   </div>
-  <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
-    <h2 text="xl" font="bold" p="1">
+  <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-600/8">
+    <h2 text="xl" font="bold" p="2">
       🍲 组合出的菜谱 Matched Recipes
     </h2>
 
@@ -161,8 +161,8 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
           <span v-else text="sm">
             还没有完美匹配的菜谱呢…… No match
             <br>
-            大胆尝试一下，或者<a href="#" @click="rStore.reset()">
-              <strong>换个组合</strong></a>？
+            <a href="#" @click="rStore.reset()">
+              <strong>换个组合 Do over</strong></a>？
             <br>
             <!-- <span m="t-1">欢迎来
               <a class="font-bold text-blue-600 dark:text-blue-400" href="https://docs.qq.com/sheet/DQk1vdkhFV0twQVNS?tab=uykkic" target="_blank">这里</a>

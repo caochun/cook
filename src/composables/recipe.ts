@@ -1,13 +1,13 @@
 import type { Ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useGtm } from '@gtm-support/vue-gtm'
+// import { useGtm } from '@gtm-support/vue-gtm'
 import type { Recipe } from '~/types'
 
 import { useRecipeStore } from '~/stores/recipe'
 import type { StuffItem } from '~/data/food'
 
 export function useRecipe(recipe: Ref<Recipe>) {
-  const gtm = useGtm()
+  // const gtm = useGtm()
 
   const rStore = useRecipeStore()
   const { curMode, curTool } = storeToRefs(rStore)
@@ -59,16 +59,16 @@ export function useRecipe(recipe: Ref<Recipe>) {
     const value = item.name
     rStore.toggleTools(value)
 
-    gtm?.trackEvent({
-      event: 'click',
-      category: `tool_${value}`,
-      action: 'click_tool',
-      label: '工具',
-    })
-    gtm?.trackEvent({
-      event: 'click_tool',
-      action: item.name,
-    })
+    // gtm?.trackEvent({
+    //   event: 'click',
+    //   category: `tool_${value}`,
+    //   action: 'click_tool',
+    //   label: '工具',
+    // })
+    // gtm?.trackEvent({
+    //   event: 'click_tool',
+    //   action: item.name,
+    // })
   }
 
   return {

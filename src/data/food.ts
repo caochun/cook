@@ -102,6 +102,21 @@ export const vegetable: StuffItem[] = [
     alias: '白菜',
     label: '包菜 Cabbage',
   },
+  {
+    name: '蓝莓',
+    emoji: '🫐',
+    label: '蓝莓 Blueberry',
+  },
+  {
+    name: '燕麦',
+    emoji: '🌾',
+    label: '燕麦 Oat',
+  },
+  {
+    name: '南瓜',
+    emoji: '🎃',
+    label: '南瓜 Pumpkin',
+  },
 ]
 
 /**
@@ -143,6 +158,11 @@ export const meat: StuffItem[] = [
     name: '鱼',
     emoji: '🐟',
     label: '鱼 Fish',
+  },
+  {
+    name: '牛奶',
+    emoji: '🥛',
+    label: '牛奶 Milk',
   },
 ]
 
