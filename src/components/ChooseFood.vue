@@ -1,13 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/data/food'
-// import { meat, staple, tools, vegetable } from '~/data/food'
-import { meat, vegetable } from '~/data/food'
-
+import { meat, staple, tools, vegetable } from '~/data/food'
 import recipeData from '~/data/recipe.json'
-// import type { Recipe, RecipeItem } from '~/types'
-import type { Recipe } from '~/types'
-
+import type { Recipe, RecipeItem } from '~/types'
 import { useRecipeStore } from '~/stores/recipe'
 
 import { useInvisibleElement } from '~/composables/helper'
@@ -20,9 +16,7 @@ const rStore = useRecipeStore()
 const { curTool } = storeToRefs(rStore)
 const curStuff = computed(() => rStore.selectedStuff)
 
-// const { displayedRecipe, clickTool } = useRecipe(recipe)
-
-const { displayedRecipe } = useRecipe(recipe)
+const { displayedRecipe, clickTool } = useRecipe(recipe)
 
 const recipeBtn = ref<HTMLButtonElement>()
 const { playAnimation } = useEmojiAnimation(recipeBtn)
@@ -45,9 +39,14 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
 
 <template>
   <Transition>
-    <button v-show="displayedRecipe.length !== recipe.length && isVisible" ref="recipeBtn"
+    <button
+      v-show="displayedRecipe.length !== recipe.length && isVisible"
+      ref="recipeBtn"
       class="cursor-pointer fixed inline-flex justify-center items-center rounded rounded-full shadow hover:shadow-md z-9"
-      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4" text="green-600 dark:green-300" @click="show">
+      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4"
+      text="green-600 dark:green-300"
+      @click="show"
+    >
       <span v-if="displayedRecipe.length">
         <div i-mdi-bowl-mix-outline />
       </span>
@@ -57,39 +56,47 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
     </button>
   </Transition>
 
-  <h2 m="t-4" text="xl" font="bold" p="1">
-    🥘 先选食材 Ingredients
-  </h2>
-  <div>
-    <h2 opacity="90" text="base" font="bold" p="1">
-      🥬 菜菜们 Vegetables
+  <div m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
+    <h2 m="t-4" text="xl" font="bold" p="1">
+      🥘 先选食材 Ingredients
     </h2>
-    <VegetableTag v-for="item, i in vegetable" :key="i" :active="curStuff.includes(item.name)"
-      @click="toggleStuff(item, 'vegetable')">
-      <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
-      <span v-else-if="item.image" class="inline-flex">
-        <img class="inline-flex" w="2" h="2" width="10" height="10" :src="item.image" :alt="item.name">
-      </span>
-      <span class="inline-flex" m="l-1">
-        {{
-        item.label
-        }}
-      </span>
-    </VegetableTag>
-  </div>
-  <div m="y-4">
-    <h2 opacity="90" text="base" font="bold" p="1">
-      🥩 肉肉们 Meat
-    </h2>
-    <MeatTag v-for="item, i in meat" :key="i" :active="curStuff.includes(item.name)" @click="toggleStuff(item, 'meat')">
-      <span>{{ item.emoji }}</span>
-      <span m="l-1">
-        {{
-        item.label
-        }}
-      </span>
-    </MeatTag>
-  </div>
+    <div>
+      <h2 opacity="90" text="base" font="bold" p="1">
+        🥬 菜菜们 Vegetables
+      </h2>
+      <VegetableTag
+        v-for="item, i in vegetable" :key="i"
+        :active="curStuff.includes(item.name)"
+        @click="toggleStuff(item, 'vegetable')"
+      >
+        <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
+        <span v-else-if="item.image" class="inline-flex">
+          <img class="inline-flex" w="2" h="2" width="10" height="10" :src="item.image" :alt="item.name">
+        </span>
+        <span class="inline-flex" m="l-1">
+          {{
+            item.label
+          }}
+        </span>
+      </VegetableTag>
+    </div>
+    <div m="y-4">
+      <h2 opacity="90" text="base" font="bold" p="1">
+        🥩 肉肉们 Meat
+      </h2>
+      <MeatTag
+        v-for="item, i in meat" :key="i"
+        :active="curStuff.includes(item.name)"
+        @click="toggleStuff(item, 'meat')"
+      >
+        <span>{{ item.emoji }}</span>
+        <span m="l-1">
+          {{
+            item.label
+          }}
+        </span>
+      </MeatTag>
+    </div>
   <!-- <div m="y-4">
     <h2 opacity="90" text="base" font="bold" p="1">
       🍚 主食也要一起下锅吗？（不选也行）
@@ -127,7 +134,7 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
       </span>
     </ToolTag>
   </div> -->
-
+  </div>
   <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-400/8">
     <h2 text="xl" font="bold" p="1">
       🍲 组合出的菜谱 Matched Recipes
@@ -157,10 +164,10 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
             大胆尝试一下，或者<a href="#" @click="rStore.reset()">
               <strong>换个组合</strong></a>？
             <br>
-            <!-- <span m="t-1">欢迎来
+            <span m="t-1">欢迎来
               <a class="font-bold text-blue-600 dark:text-blue-400" href="https://docs.qq.com/sheet/DQk1vdkhFV0twQVNS?tab=uykkic" target="_blank">这里</a>
               反馈新的菜谱！
-            </span> -->
+            </span>
           </span>
         </div>
       </Transition>
