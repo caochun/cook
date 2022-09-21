@@ -9,10 +9,10 @@ const searchModes: {
   name: string
 }[] = [{
   id: 'loose',
-  name: '模糊匹配',
+  name: '模糊匹配 Match ANY',
 }, {
   id: 'strict',
-  name: '严格匹配',
+  name: '严格匹配 Match ALL',
 }]
 </script>
 

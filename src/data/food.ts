@@ -102,11 +102,7 @@ export const vegetable: StuffItem[] = [
     alias: '白菜',
     label: '包菜 Cabbage',
   },
-  {
-    name: '蓝莓',
-    emoji: '🫐',
-    label: '蓝莓 Blueberry',
-  },
+
   {
     name: '燕麦',
     emoji: '🌾',
@@ -116,6 +112,52 @@ export const vegetable: StuffItem[] = [
     name: '南瓜',
     emoji: '🎃',
     label: '南瓜 Pumpkin',
+  },
+]
+
+/**
+ * 水果
+ */
+export const fruit: StuffItem[] = [
+  {
+    name: '蓝莓',
+    emoji: '🫐',
+    label: '蓝莓 Blueberry',
+  },
+  {
+    name: '草莓',
+    emoji: '🍓',
+    label: '草莓 Strawberry',
+  },
+  {
+    name: '芒果',
+    emoji: '🥭',
+    label: '芒果 Mongo',
+  },
+  {
+    name: '橙子',
+    emoji: '🍊',
+    label: '橙子 Orange',
+  },
+  {
+    name: '香蕉',
+    emoji: '🍌',
+    label: '香蕉 Banana',
+  },
+  {
+    name: '苹果',
+    emoji: '🍎',
+    label: '苹果 Apple',
+  },
+  {
+    name: '柠檬',
+    emoji: '🍋',
+    label: '柠檬 Lemon',
+  },
+  {
+    name: '坚果',
+    emoji: '🌰',
+    label: '坚果 Peanut',
   },
 ]
 

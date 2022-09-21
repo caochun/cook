@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import type { StuffItem } from '~/data/food'
-import { meat, staple, tools, vegetable } from '~/data/food'
+import { fruit, meat, tools, vegetable } from '~/data/food'
 import recipeData from '~/data/recipe.json'
 import type { Recipe, RecipeItem } from '~/types'
 import { useRecipeStore } from '~/stores/recipe'
@@ -40,12 +40,9 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
 <template>
   <Transition>
     <button
-      v-show="displayedRecipe.length !== recipe.length && isVisible"
-      ref="recipeBtn"
+      v-show="displayedRecipe.length !== recipe.length && isVisible" ref="recipeBtn"
       class="cursor-pointer fixed inline-flex justify-center items-center rounded rounded-full shadow hover:shadow-md z-9"
-      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4"
-      text="green-600 dark:green-300"
-      @click="show"
+      bg="green-50 dark:green-900" w="10" h="10" bottom="4" right="4" text="green-600 dark:green-300" @click="show"
     >
       <span v-if="displayedRecipe.length">
         <div i-mdi-bowl-mix-outline />
@@ -62,11 +59,10 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
     </h2>
     <div>
       <h2 opacity="90" text="base" font="bold" p="2">
-        🥬 蔬果 Vegetables
+        🥬 菜菜 Vegetable
       </h2>
       <VegetableTag
-        v-for="item, i in vegetable" :key="i"
-        :active="curStuff.includes(item.name)"
+        v-for="item, i in vegetable" :key="i" :active="curStuff.includes(item.name)"
         @click="toggleStuff(item, 'vegetable')"
       >
         <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
@@ -85,8 +81,7 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
         🥩 肉肉 Meat
       </h2>
       <MeatTag
-        v-for="item, i in meat" :key="i"
-        :active="curStuff.includes(item.name)"
+        v-for="item, i in meat" :key="i" :active="curStuff.includes(item.name)"
         @click="toggleStuff(item, 'meat')"
       >
         <span>{{ item.emoji }}</span>
@@ -97,43 +92,62 @@ const { isVisible, show } = useInvisibleElement(recipePanel)
         </span>
       </MeatTag>
     </div>
-  <!-- <div m="y-4">
-    <h2 opacity="90" text="base" font="bold" p="1">
-      🍚 主食也要一起下锅吗？（不选也行）
-    </h2>
-    <StapleTag
-      v-for="item, i in staple" :key="i"
-      :active="curStuff.includes(item.name)"
-      @click="toggleStuff(item, 'staple')"
-    >
-      <span>{{ item.emoji }}</span>
-      <span m="l-1">
-        {{
-          item.name
-        }}
-      </span>
-    </StapleTag>
-  </div>
-  <div m="t-4">
-    <h2 text="xl" font="bold" p="1">
-      🍳 再选一下厨具
-    </h2>
-    <ToolTag
-      v-for="item, i in tools" :key="i"
-      :active="curTool === item.name"
-      @click="clickTool(item)"
-    >
-      <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
-      <span v-else-if="item.icon" class="inline-flex">
-        <div :class="item.icon" />
-      </span>
-      <span class="inline-flex" m="l-1">
-        {{
-          item.label || item.name
-        }}
-      </span>
-    </ToolTag>
-  </div> -->
+
+    <div m="y-4">
+      <h2 opacity="90" text="base" font="bold" p="1">
+        🍉 果果 Fruit
+      </h2>
+      <FruitTag
+        v-for="item, i in fruit" :key="i" :active="curStuff.includes(item.name)"
+        @click="toggleStuff(item, 'fruit')"
+      >
+        <span>{{ item.emoji }}</span>
+        <span m="l-1">
+          {{
+            item.label
+          }}
+        </span>
+      </FruitTag>
+    </div>
+    <!--
+    <div m="y-4">
+      <h2 opacity="90" text="base" font="bold" p="1">
+        🍚 主食也要一起下锅吗？（不选也行）
+      </h2>
+      <StapleTag
+        v-for="item, i in staple" :key="i"
+        :active="curStuff.includes(item.name)"
+        @click="toggleStuff(item, 'staple')"
+      >
+        <span>{{ item.emoji }}</span>
+        <span m="l-1">
+          {{
+            item.name
+          }}
+        </span>
+      </StapleTag>
+    </div>
+
+    <div m="t-4">
+      <h2 text="xl" font="bold" p="1">
+        🍳 再选一下厨具
+      </h2>
+      <ToolTag
+        v-for="item, i in tools" :key="i"
+        :active="curTool === item.name"
+        @click="clickTool(item)"
+      >
+        <span v-if="item.emoji" class="inline-flex">{{ item.emoji }}</span>
+        <span v-else-if="item.icon" class="inline-flex">
+          <div :class="item.icon" />
+        </span>
+        <span class="inline-flex" m="l-1">
+          {{
+            item.label || item.name
+          }}
+        </span>
+      </ToolTag>
+    </div> -->
   </div>
   <div ref="recipePanel" m="2 t-4" p="2" class="relative transition shadow hover:shadow-md" bg="gray-600/8">
     <h2 text="xl" font="bold" p="2">
