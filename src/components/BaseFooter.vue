@@ -6,7 +6,7 @@
     </div>
 
     <div m="t-2" class="inline-flex justify-center items-center" text="xs">
-      <span>Designed By Catherine Lu  <a href="https: www.instagram.com/catherine.eats/">@catherine.eats</a>
+      <span>Designed By Catherine Lu  <a href="https://www.instagram.com/catherine.eats/">@catherine.eats</a>
       </span>
     </div>
 
